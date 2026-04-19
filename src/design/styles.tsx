@@ -11,6 +11,20 @@ export const Style = (): Record<string, CSSProperties> => ({
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
         padding: '20px',
     },
+    designercontainer: {
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'linear-gradient(135deg, #f5f1f1 0%, #ac0c3c 100%)',
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        padding: '20px',
+        columnGap:'20px',
+        overflow: 'auto !important',
+        maxHeight:'700px !important'
+        
+    },
     card: {
         background: 'white',
         borderRadius: '12px',

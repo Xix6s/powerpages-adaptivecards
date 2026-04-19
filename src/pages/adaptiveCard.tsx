@@ -3,8 +3,12 @@ import { useNavigate } from "react-router-dom";
 import type { JSXElement } from "@fluentui/react-components";
 import { makeStyles, Button, Tooltip } from "@fluentui/react-components";
 import { ArrowStepBackFilled } from "@fluentui/react-icons";
+import { JsonEditor } from 'json-edit-react'
 
 import { Style } from "../design/styles";
+import { useState } from "react";
+import data from "../resources/samplepayload.json"
+import { Data } from "../resources/DemoData";
 
 const useStyles = makeStyles({
   innerWrapper: {
@@ -20,226 +24,37 @@ const useStyles = makeStyles({
   },
 });
 
-const card = {
-    "type": "AdaptiveCard",
-    "speak": "Intro to graphic design, concepts video",
-    "$schema": "https://adaptivecards.io/schemas/adaptive-card.json",
-    "version": "1.6",
-    "body": [
-        {
-            "type": "Image",
-            "url": "https://raw.githubusercontent.com/OfficeDev/Microsoft-Teams-Card-Samples/main/samples/course-video/assets/video_image.png",
-            "selectAction": {
-                "type": "Action.OpenUrl",
-                "url": "https://adaptivecards.io/",
-                "altText": "Intro to Graphic Design: Concepts Video"
-            },
-            "style": "RoundedCorners"
-        },
-        {
-            "type": "TextBlock",
-            "text": "Intro to Graphic Design: Concepts",
-            "wrap": true,
-            "size": "Large",
-            "weight": "Bolder"
-        },
-        {
-            "type": "Rating",
-            "value": 4,
-            "count": 1160,
-            "color": "Marigold",
-            "size": "Medium",
-            "fallback": {
-                "type": "TextBlock",
-                "text": "4 Stars · 1,160",
-                "spacing": "None"
-            },
-            "spacing": "None"
-        },
-        {
-            "type": "TextBlock",
-            "text": "Course · 52m · Beginner",
-            "wrap": true,
-            "isSubtle": true,
-            "spacing": "Small"
-        },
-        {
-            "type": "ColumnSet",
-            "columns": [
-                {
-                    "type": "Column",
-                    "width": "auto",
-                    "items": [
-                        {
-                            "type": "Image",
-                            "url": "https://raw.githubusercontent.com/OfficeDev/Microsoft-Teams-Card-Samples/main/samples/course-video/assets/logo_image.png",
-                            "width": "16px",
-                            "height": "16px",
-                            "altText": "Logo"
-                        }
-                    ],
-                    "horizontalAlignment": "Center",
-                    "verticalContentAlignment": "Center"
-                },
-                {
-                    "type": "Column",
-                    "width": "auto",
-                    "items": [
-                        {
-                            "type": "TextBlock",
-                            "text": "Sketchpad Scholars",
-                            "wrap": true,
-                            "weight": "Bolder"
-                        }
-                    ],
-                    "spacing": "Small",
-                    "verticalContentAlignment": "Center"
-                },
-                {
-                    "type": "Column",
-                    "targetWidth": "AtLeast:Standard",
-                    "width": "auto",
-                    "items": [
-                        {
-                            "type": "TextBlock",
-                            "text": "·"
-                        }
-                    ],
-                    "spacing": "Small",
-                    "verticalContentAlignment": "Center"
-                },
-                {
-                    "type": "Column",
-                    "targetWidth": "AtLeast:Standard",
-                    "width": "auto",
-                    "items": [
-                        {
-                            "type": "TextBlock",
-                            "text": "Tony Harper",
-                            "wrap": true
-                        }
-                    ],
-                    "spacing": "Small",
-                    "verticalContentAlignment": "Center"
-                }
-            ],
-            "spacing": "None"
-        },
-        {
-            "type": "TextBlock",
-            "targetWidth": "AtLeast:Narrow",
-            "text": "This course is designed to equip you with an understanding of the key principles and tools necessary for creating compelling designs. You'll gain practical experience with creative software and learn...",
-            "wrap": true,
-            "id": "truncatedText"
-        },
-        {
-            "type": "TextBlock",
-            "targetWidth": "AtLeast:Narrow",
-            "text": "This course is designed to equip you with an understanding of the key principles and tools necessary for creating compelling designs. You'll gain practical experience with creative software and learn about design principles through hands-on projects that will help build your portfolio. Enroll now and start your journey to mastering the art of graphic design.",
-            "wrap": true,
-            "isVisible": false,
-            "id": "fullText"
-        },
-        {
-            "type": "RichTextBlock",
-            "id": "showMore",
-            "targetWidth": "AtLeast:Narrow",
-            "spacing": "None",
-            "inlines": [
-                {
-                    "type": "TextRun",
-                    "text": "Show more",
-                    "selectAction": {
-                        "type": "Action.ToggleVisibility",
-                        "targetElements": [
-                            "truncatedText",
-                            "fullText",
-                            "showMore",
-                            "showLess"
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "type": "RichTextBlock",
-            "id": "showLess",
-            "targetWidth": "AtLeast:Narrow",
-            "spacing": "None",
-            "inlines": [
-                {
-                    "type": "TextRun",
-                    "text": "Show less",
-                    "selectAction": {
-                        "type": "Action.ToggleVisibility",
-                        "targetElements": [
-                            "truncatedText",
-                            "fullText",
-                            "showMore",
-                            "showLess"
-                        ]
-                    }
-                }
-            ],
-            "isVisible": false
-        },
-        {
-            "type": "ActionSet",
-            "spacing": "Large",
-            "targetWidth": "AtLeast:Narrow",
-            "actions": [
-                {
-                    "type": "Action.OpenUrl",
-                    "title": "Open",
-                    "url": "https://adaptivecards.io/"
-                },
-                {
-                    "type": "Action.Execute",
-                    "title": "Bookmark",
-                    "iconUrl": "icon:Bookmark"
-                }
-            ]
-        },
-        {
-            "type": "ActionSet",
-            "spacing": "Large",
-            "targetWidth": "VeryNarrow",
-            "actions": [
-                {
-                    "type": "Action.OpenUrl",
-                    "title": "Open",
-                    "url": "https://adaptivecards.io/"
-                },
-                {
-                    "type": "Action.Execute",
-                    "title": "Action",
-                    "iconUrl": "icon:Bookmark"
-                }
-            ]
-        }
-    ]
-}
-
 export const DesignCard = () => {
-//const styles = useStyles();
+const styleseditor = useStyles();
 const navigate = useNavigate();
-
+const [jsonData, setJsonData] = useState(data);
  const adaptiveCard = new AdaptiveCards.AdaptiveCard();
  adaptiveCard.hostConfig = new AdaptiveCards.HostConfig({
     fontFamily: "Segoe UI, Helvetica Neue, sans-serif"
  });
 
  adaptiveCard.onExecuteAction = () => alert("ACTION!");
- adaptiveCard.parse(card);
+ adaptiveCard.parse(jsonData ?? Data);
 const result = adaptiveCard.render();
     return (
-        <div style={Style()["container"]}>
+        <div style={Style()["designercontainer"]}>
+             <JsonEditor
+             data={jsonData}
+             defaultValue={Data}
+             setData={setJsonData}
+             maxWidth="min(700px,vw)"
+             minWidth={'min(670px,90vw)'}
+             rootFontSize={12}
+             showCollectionCount={true}
+             enableClipboard={true}
+             />
             <div style={Style()["card"]} ref={(n) => {
                 n && n.firstChild && n.removeChild(n.firstChild);
                 n && n.appendChild(result);
             }} />
+           
             <Tooltip content="back" relationship="label">
-          <Button size="small" icon={<ArrowStepBackFilled />} onClick={() => navigate("/")} />
+          <Button size="large" icon={<ArrowStepBackFilled />} onClick={() => navigate("/")} />
           </Tooltip>
             </div>
             
