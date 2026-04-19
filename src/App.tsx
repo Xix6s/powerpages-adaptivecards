@@ -2,6 +2,8 @@ import { useState, CSSProperties, MouseEvent } from "react";
 import { createBrowserRouter, useNavigate, RouterProvider } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 
+import { Image } from "@fluentui/react-components";
+
 // ======= Shared Styles =======
 const styles: Record<string, CSSProperties> = {
     container: {
@@ -10,7 +12,7 @@ const styles: Record<string, CSSProperties> = {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        background: 'linear-gradient(135deg, #f5f1f1 0%, #ac0c3c 100%)',
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
         padding: '20px',
     },
@@ -161,6 +163,12 @@ const Home = () => {
 
     return (
         <div style={styles.container}>
+             <Image
+                alt="Xix6s"
+                src="/src/resources/xix-logo.png"
+                height={100}
+                width={100}
+            />
             <div style={styles.card}>
                 <h1 style={styles.title}>
                     {isAuthenticated ? '👋 Welcome Back!' : '🏠 Home'}
