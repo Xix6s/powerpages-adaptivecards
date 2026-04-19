@@ -18,6 +18,7 @@ export const Style = (): Record<string, CSSProperties> => ({
         padding: '40px',
         maxWidth: '450px',
         width: '100%',
+        borderStyle: 'none',
     },
     title: {
         fontSize: '28px',

@@ -5,10 +5,12 @@ import { useAuth } from "./context/AuthContext";
 import { Image } from "@fluentui/react-components";
 import { Style } from "./design/styles";
 import { Authenticated } from "./pages/authenticated";
-import { Login } from "./pages/login";
+import { LoginCard } from "./pages/loginCard";
 import { SignUp } from "./pages/signup";
 import { UpdateUser } from "./pages/updateUser";
 import { NotFound } from "./pages/notFound";
+import { LoginPage } from "./pages/loginPage";
+import {DesignCard} from "./pages/adaptiveCard"
 
 
 // ======= Home Page =======
@@ -33,7 +35,7 @@ const Home = () => {
             />
             <div style={Style()["card"]}>
                 <h1 style={Style()["title"]}>
-                    {isAuthenticated ? '👋 Welcome Back!' : '🏠 Home'}
+                    {isAuthenticated ? '👋 Welcome Back!' : '🏠 Adaptive UI'}
                 </h1>
 
                 {isAuthenticated ? (
@@ -42,7 +44,7 @@ const Home = () => {
                     </>
                 ) : (
                     <>
-                    <Login />
+                    <LoginCard />
                     </>
                 )}
             </div>
@@ -54,9 +56,10 @@ const Home = () => {
 // ======= Router Setup =======
 const router = createBrowserRouter([
     { path: "/", element: <Home /> },
-    { path: "/login", element: <Login /> },
+    { path: "/login", element: <LoginPage /> },
     { path: "/signup", element: <SignUp /> },
     { path: "/update", element: <UpdateUser /> },
+    { path: "/design", element: <DesignCard /> },
     { path: "*", element: <NotFound /> },
 ]);
 

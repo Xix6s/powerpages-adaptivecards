@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { Style } from "../design/styles";
 import { useAuth } from "../context/AuthContext";
 import { useState, MouseEvent } from "react";
+import { Button, Tooltip } from "@fluentui/react-components";
+import { ArrowStepBackFilled } from "@fluentui/react-icons";
 
 export const LoginPage = () => {
     
@@ -103,6 +105,9 @@ export const LoginPage = () => {
                     </span>
                 </div>
             </div>
+             <Tooltip content="back" relationship="label">
+                      <Button size="small" icon={<ArrowStepBackFilled />} onClick={() => navigate("/")} />
+                      </Tooltip>
         </div>
     );
 };
