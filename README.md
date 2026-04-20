@@ -1,6 +1,6 @@
-# 🚀 React Basic Starter by ViteRaptor (Vite + React)
+# 🚀 React Power Page by xix (Vite + React)
 
-This is a **minimal React starter template** created by **ViteRaptor** 🦖.  
+This is a **minimal React starter template** created by **xix** 6️⃣.  
 It uses [Vite](https://vitejs.dev) for fast development and build.
 
 ---
