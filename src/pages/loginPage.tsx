@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { useState, MouseEvent } from "react";
 import { Button, Tooltip } from "@fluentui/react-components";
 import { ArrowStepBackFilled } from "@fluentui/react-icons";
+import { Image } from "@fluentui/react-components";
 
 export const LoginPage = () => {
     
@@ -40,8 +41,16 @@ export const LoginPage = () => {
     };
 
     return (
-        <div style={Style()["container"]}>
-            <div style={Style()["card"]}>
+        <div >
+            <Image
+                alt="Xix6s"
+                src="/src/resources/xix-logo.svg"
+                height={50}
+                width={50}
+                style={{marginBlockEnd:"auto"}}
+            />
+            <div style={{display:"flex", flexDirection: "row",alignItems:"center",justifyContent: "center", padding: '20px', columnGap:'20px',overflow: 'auto !important',borderTopColor:'red',borderTopStyle:'dashed'}}>
+                 <div style={Style()["card"]}>
                 <h1 style={Style()["title"]}>🔐 Login</h1>
                 <p style={Style()["subtitle"]}>Welcome back! Please login to your account</p>
 
@@ -105,9 +114,12 @@ export const LoginPage = () => {
                     </span>
                 </div>
             </div>
-             <Tooltip content="back" relationship="label">
-                      <Button size="small" icon={<ArrowStepBackFilled />} onClick={() => navigate("/")} />
-                      </Tooltip>
+
+            <Button size="large" style={{color:'red', fontFamily:'cursive'}} icon={<ArrowStepBackFilled />} onClick={() => navigate("/")}>BCK</Button>
+
+            </div>
+             
+           
         </div>
     );
 };

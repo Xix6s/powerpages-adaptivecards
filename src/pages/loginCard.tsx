@@ -7,7 +7,6 @@ import {
   makeStyles,
   Body1,
   Caption1,
-  Button,
   Card,
   CardFooter,
   CardHeader,
@@ -38,14 +37,9 @@ const styles = useStyles();
     
   return (
     <div>
-       <Card className={styles.card} style={{borderStyle: "none !important"}}>
+       <Card className={styles.card} style={{display:"flex", flexDirection: "row",alignItems:"center",justifyContent: "center", padding: '20px', columnGap:'20px',overflow: 'auto !important',borderStyle:'none !important'}}>
       <CardHeader
-        // image={
-        //   <img
-        //     src={resolveAsset("avatar_elvia.svg")}
-        //     alt="Elvia Atkins avatar picture"
-        //   />
-        // }
+
         header={
           <Body1>
             
@@ -59,12 +53,7 @@ const styles = useStyles();
           <img src={resolveAsset("adaptive-card-200.png")} alt="Adaptive Cards"/>
         }
       >
-        {/* <img
-          src={resolveAsset("adaptive-card-200.png")}
-          alt="Adaptive Cards"
-          width={10}
-          height={10}
-        /> */}
+
       </CardPreview>
 
       <CardFooter>

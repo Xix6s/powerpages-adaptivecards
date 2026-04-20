@@ -10,6 +10,7 @@ export const Style = (): Record<string, CSSProperties> => ({
         background: 'linear-gradient(135deg, #f5f1f1 0%, #ac0c3c 100%)',
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
         padding: '20px',
+        borderStyle:'none',
     },
     designercontainer: {
         minHeight: '100vh',

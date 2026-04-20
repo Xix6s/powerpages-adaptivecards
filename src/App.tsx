@@ -12,6 +12,11 @@ import { NotFound } from "./pages/notFound";
 import { LoginPage } from "./pages/loginPage";
 import {DesignCard} from "./pages/adaptiveCard"
 
+const resolveAsset = (asset: string) => {
+  const ASSET_URL =
+    "https://raw.githubusercontent.com/Xix6s/powerpages-adaptivecards/5be446bc882564491c9323a6aa7fa2c6929d659a/src/resources/"
+  return `${ASSET_URL}${asset}`;
+};
 
 // ======= Home Page =======
 const Home = () => {
@@ -26,14 +31,14 @@ const Home = () => {
     }
 
     return (
-        <div style={Style()["container"]}>
+        <div style={{minHeight: '100vh', display:"flex", flexDirection: "column",alignItems:"center",justifyContent: "center", padding: '20px', background: 'linear-gradient(135deg, #f5f1f1 0%, #ac0c3c 100%)',fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',borderStyle:'none'}}>
              <Image
                 alt="Xix6s"
-                src="/src/resources/xix-logo.svg"
+                src={resolveAsset("xix-logo.svg")}
                 height={100}
                 width={100}
             />
-            <div style={Style()["card"]}>
+            <div style={{background: 'white',borderStyle:'none', borderRadius: '12px', boxShadow: '0 10px 40px rgba(0,0,0,0.1)', padding: '40px', maxWidth: '450px', width: '100%'}}>
                 <h1 style={Style()["title"]}>
                     {isAuthenticated ? '👋 Welcome Back!' : '🏠 Adaptive UI'}
                 </h1>

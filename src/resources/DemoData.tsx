@@ -51,7 +51,7 @@ export const Data: Record<string, object> = {
             items: [
               {
                 type: "Image",
-                url: "https://raw.githubusercontent.com/OfficeDev/Microsoft-Teams-Card-Samples/main/samples/course-video/assets/logo_image.png",
+                url: "https://raw.githubusercontent.com/Xix6s/powerpages-adaptivecards/5be446bc882564491c9323a6aa7fa2c6929d659a/src/resources/6it.svg",
                 width: "16px",
                 height: "16px",
                 altText: "Logo",
@@ -66,7 +66,7 @@ export const Data: Record<string, object> = {
             items: [
               {
                 type: "TextBlock",
-                text: "Sketchpad Scholars",
+                text: "6it technologies",
                 wrap: true,
                 weight: "Bolder",
               },
@@ -94,7 +94,7 @@ export const Data: Record<string, object> = {
             items: [
               {
                 type: "TextBlock",
-                text: "Tony Harper",
+                text: "Cortes",
                 wrap: true,
               },
             ],
