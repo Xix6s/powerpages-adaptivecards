@@ -4,11 +4,13 @@ import type { JSXElement } from "@fluentui/react-components";
 import { makeStyles, Button, Tooltip } from "@fluentui/react-components";
 import { ArrowStepBackFilled } from "@fluentui/react-icons";
 import { JsonEditor } from 'json-edit-react'
+import { Image } from "@fluentui/react-components";
 
 import { Style } from "../design/styles";
 import { useState } from "react";
 import data from "../resources/samplepayload.json"
 import { Data } from "../resources/DemoData";
+import { Text } from "@fluentui/react-components";
 
 const useStyles = makeStyles({
   innerWrapper: {
@@ -37,25 +39,35 @@ const [jsonData, setJsonData] = useState(data);
  adaptiveCard.parse(jsonData ?? Data);
 const result = adaptiveCard.render();
     return (
-        <div style={Style()["designercontainer"]}>
-             <JsonEditor
+        <div >
+             <Image
+                alt="Xix6s"
+                src="/src/resources/xix-logo.svg"
+                height={50}
+                width={50}
+                style={{marginBlockEnd:"auto"}}
+            />
+            <div style={{display:"flex", flexDirection: "row",alignItems:"flex-start",justifyContent: "space-around", padding: '20px', columnGap:'20px',overflow: 'auto !important',borderTopColor:'red',borderTopStyle:'dashed'}}>
+                <JsonEditor
              data={jsonData}
              defaultValue={Data}
              setData={setJsonData}
-             maxWidth="min(700px,vw)"
-             minWidth={'min(670px,90vw)'}
+             maxWidth="min(700px,50vw)"
+             minWidth={'min(670px,50vw)'}
              rootFontSize={12}
              showCollectionCount={true}
              enableClipboard={true}
+             indent={1}
              />
             <div style={Style()["card"]} ref={(n) => {
                 n && n.firstChild && n.removeChild(n.firstChild);
                 n && n.appendChild(result);
             }} />
            
-            <Tooltip content="back" relationship="label">
-          <Button size="large" icon={<ArrowStepBackFilled />} onClick={() => navigate("/")} />
-          </Tooltip>
+
+          <Button size="large" style={{color:'red', fontFamily:'cursive'}} icon={<ArrowStepBackFilled />} onClick={() => navigate("/")}>BCK</Button>
+            </div>
+             
             </div>
             
     );
