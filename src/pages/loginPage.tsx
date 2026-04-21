@@ -6,6 +6,12 @@ import { Button } from "@fluentui/react-components";
 import { ArrowStepBackFilled } from "@fluentui/react-icons";
 import { Image } from "@fluentui/react-components";
 
+const resolveAsset = (asset: string) => {
+  const ASSET_URL =
+    "https://raw.githubusercontent.com/Xix6s/powerpages-adaptivecards/a108ede97a8891dcf5e2f5c1be4b118c1625f4c5/src/resources/"
+  return `${ASSET_URL}${asset}`;
+};
+
 export const LoginPage = () => {
     
  const [email, setEmail] = useState("");
@@ -44,10 +50,9 @@ export const LoginPage = () => {
         <div >
             <Image
                 alt="Xix6s"
-                src="/src/resources/6it-logo.svg"
+                src={resolveAsset("6it-logo.svg")}
                 height={50}
                 width={50}
-                style={{paddingLeft:"130px"}}
             />
             <div style={{display:"flex", flexDirection: "row",alignItems:"center",justifyContent: "center", padding: '20px', columnGap:'20px',overflow: 'auto !important',borderTopColor:'red',borderTopStyle:'dashed'}}>
                  <div style={Style()["card"]}>

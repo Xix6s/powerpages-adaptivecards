@@ -14,7 +14,7 @@ import {DesignCard} from "./pages/adaptiveCard"
 
 const resolveAsset = (asset: string) => {
   const ASSET_URL =
-    "https://raw.githubusercontent.com/Xix6s/powerpages-adaptivecards/5be446bc882564491c9323a6aa7fa2c6929d659a/src/resources/"
+    "https://raw.githubusercontent.com/Xix6s/powerpages-adaptivecards/a108ede97a8891dcf5e2f5c1be4b118c1625f4c5/src/resources/"
   return `${ASSET_URL}${asset}`;
 };
 

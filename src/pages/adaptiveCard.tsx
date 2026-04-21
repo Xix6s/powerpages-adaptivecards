@@ -12,7 +12,11 @@ import data from "../resources/samplepayload.json"
 import { Data } from "../resources/DemoData";
 
 
-
+const resolveAsset = (asset: string) => {
+  const ASSET_URL =
+    "https://raw.githubusercontent.com/Xix6s/powerpages-adaptivecards/a108ede97a8891dcf5e2f5c1be4b118c1625f4c5/src/resources/"
+  return `${ASSET_URL}${asset}`;
+};
 export const DesignCard = () => {
 const navigate = useNavigate();
 const [jsonData, setJsonData] = useState(data);
@@ -28,7 +32,7 @@ const result = adaptiveCard.render();
         <div >
              <Image
                 alt="Xix6s"
-                src="/src/resources/xix-logo.svg"
+                src={resolveAsset("6it-logo.svg")}
                 height={50}
                 width={50}
                 style={{marginBlockEnd:"auto"}}

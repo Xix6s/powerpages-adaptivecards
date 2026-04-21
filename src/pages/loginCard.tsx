@@ -33,11 +33,11 @@ const resolveAsset = (asset: string) => {
 
 export const LoginCard = () => {
 const navigate = useNavigate();
-const styles = useStyles();
+// const styles = useStyles();
     
   return (
     <div>
-      <img src={resolveAsset("adaptive-card-200.png")} alt="Adaptive Cards" style={{justifyContent:"center"}}/>
+      <img src={resolveAsset("adaptive-card-200.png")} alt="Adaptive Cards" style={{paddingLeft:"150px"}} height={100} width={100}/>
       <p style={Style()["subtitle"]}>Please login or choose Design to continue</p>
       <div style={Style()["buttonGroup"]}>
         <button
