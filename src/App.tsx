@@ -34,7 +34,7 @@ const Home = () => {
         <div style={{minHeight: '100vh', display:"flex", flexDirection: "column",alignItems:"center",justifyContent: "center", padding: '20px', background: 'linear-gradient(135deg, #f5f1f1 0%, #ac0c3c 100%)',fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',borderStyle:'none'}}>
              <Image
                 alt="Xix6s"
-                src={resolveAsset("xix-logo.svg")}
+                src={resolveAsset("6it-logo.svg")}
                 height={100}
                 width={100}
             />

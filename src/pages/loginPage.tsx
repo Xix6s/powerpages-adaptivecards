@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Style } from "../design/styles";
 import { useAuth } from "../context/AuthContext";
 import { useState, MouseEvent } from "react";
-import { Button, Tooltip } from "@fluentui/react-components";
+import { Button } from "@fluentui/react-components";
 import { ArrowStepBackFilled } from "@fluentui/react-icons";
 import { Image } from "@fluentui/react-components";
 
@@ -44,10 +44,10 @@ export const LoginPage = () => {
         <div >
             <Image
                 alt="Xix6s"
-                src="/src/resources/xix-logo.svg"
+                src="/src/resources/6it-logo.svg"
                 height={50}
                 width={50}
-                style={{marginBlockEnd:"auto"}}
+                style={{paddingLeft:"130px"}}
             />
             <div style={{display:"flex", flexDirection: "row",alignItems:"center",justifyContent: "center", padding: '20px', columnGap:'20px',overflow: 'auto !important',borderTopColor:'red',borderTopStyle:'dashed'}}>
                  <div style={Style()["card"]}>

@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     maxWidth: "100%",
     height: "300px",
     maxHeight: "30%",
-
+    border: "none"
   },
 });
 
@@ -37,30 +37,7 @@ const styles = useStyles();
     
   return (
     <div>
-       <Card className={styles.card} style={{display:"flex", flexDirection: "row",alignItems:"center",justifyContent: "center", padding: '20px', columnGap:'20px',overflow: 'auto !important',borderStyle:'none !important'}}>
-      <CardHeader
-
-        header={
-          <Body1>
-            
-          </Body1>
-        }
-        description={<Caption1></Caption1>}
-      />
-
-      <CardPreview
-        logo={
-          <img src={resolveAsset("adaptive-card-200.png")} alt="Adaptive Cards"/>
-        }
-      >
-
-      </CardPreview>
-
-      <CardFooter>
-        {/* <Button onClick={() => navigate("/login")} icon={<ArrowClockwiseDashesSettingsColor fontSize={16} />}>Login</Button>
-        <Button icon={<AppsColor fontSize={16} />}>Design</Button> */}
-      </CardFooter>
-    </Card>
+      <img src={resolveAsset("adaptive-card-200.png")} alt="Adaptive Cards" style={{justifyContent:"center"}}/>
       <p style={Style()["subtitle"]}>Please login or choose Design to continue</p>
       <div style={Style()["buttonGroup"]}>
         <button
