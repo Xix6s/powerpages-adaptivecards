@@ -48,6 +48,7 @@ const result = adaptiveCard.render();
              showCollectionCount={true}
              enableClipboard={true}
              indent={1}
+             collapse={true}
              />
             <div style={Style()["card"]} ref={(n) => {
                 n && n.firstChild && n.removeChild(n.firstChild);

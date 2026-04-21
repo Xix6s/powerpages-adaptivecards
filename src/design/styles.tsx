@@ -76,7 +76,7 @@ export const Style = (): Record<string, CSSProperties> => ({
         fontSize: '16px',
         fontWeight: '600',
         color: 'white',
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        background: 'linear-gradient(135deg, #e61f4a 0%, #764ba2 100%)',
         border: 'none',
         borderRadius: '8px',
         cursor: 'pointer',
@@ -85,8 +85,8 @@ export const Style = (): Record<string, CSSProperties> => ({
     },
     buttonSecondary: {
         background: 'white',
-        color: '#667eea',
-        border: '2px solid #667eea',
+        color: '#02040f',
+        border: '2px solid #f31919',
     },
     buttonDanger: {
         background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',

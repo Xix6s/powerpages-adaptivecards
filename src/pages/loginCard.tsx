@@ -37,7 +37,7 @@ const navigate = useNavigate();
     
   return (
     <div>
-      <img src={resolveAsset("adaptive-card-200.png")} alt="Adaptive Cards" style={{paddingLeft:"150px"}} height={100} width={100}/>
+      <img src={resolveAsset("adaptive-card-200.png")} alt="Adaptive Cards" style={{paddingLeft:"160px"}} height={100} width={100}/>
       <p style={Style()["subtitle"]}>Please login or choose Design to continue</p>
       <div style={Style()["buttonGroup"]}>
         <button

@@ -54,7 +54,8 @@ export const LoginPage = () => {
                 height={50}
                 width={50}
             />
-            <div style={{display:"flex", flexDirection: "row",alignItems:"center",justifyContent: "center", padding: '20px', columnGap:'20px',overflow: 'auto !important',borderTopColor:'red',borderTopStyle:'dashed'}}>
+            <div style={{display:"flex", flexDirection: "row",alignItems:"flex-start",justifyContent: "space-around", padding: '20px' ,columnGap:'20px',overflow: 'auto !important',borderTopColor:'red',borderTopStyle:'dashed'}}>
+                <div style={{width:'100px'}}></div>
                  <div style={Style()["card"]}>
                 <h1 style={Style()["title"]}>🔐 Login</h1>
                 <p style={Style()["subtitle"]}>Welcome back! Please login to your account</p>
