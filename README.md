@@ -83,6 +83,4 @@ my-app/
 
 ---
 
-## 💡 About
-Generated with **ViteRaptor 🦖**,  
-an opinionated React starter generator.
+
