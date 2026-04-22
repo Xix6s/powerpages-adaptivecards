@@ -3,27 +3,9 @@ import { MouseEvent } from "react";
 import { Style } from "../design/styles";
 
 import type { JSXElement } from "@fluentui/react-components";
-import {
-  makeStyles,
-  Body1,
-  Caption1,
-  Card,
-  CardFooter,
-  CardHeader,
-  CardPreview,
-} from "@fluentui/react-components";
 //import { ArrowClockwiseDashesSettingsColor,  AppsColor} from "@fluentui/react-icons";
 
-const useStyles = makeStyles({
-  card: {
-    margin: "auto",
-    width: "720px",
-    maxWidth: "100%",
-    height: "300px",
-    maxHeight: "30%",
-    border: "none"
-  },
-});
+
 
 const resolveAsset = (asset: string) => {
   const ASSET_URL =

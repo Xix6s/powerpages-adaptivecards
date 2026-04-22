@@ -1,7 +1,7 @@
 # 🚀 React Power Page by xix (Vite + React)
 
 This is a **minimal React starter template** created by **xix** 6️⃣.  
-It uses [Vite](https://vitejs.dev) for fast development and build.
+[Live Site:](https://site-hrmw0.powerappsportals.com/)
 
 ---
 
