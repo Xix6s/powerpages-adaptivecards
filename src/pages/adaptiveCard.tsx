@@ -2,22 +2,79 @@ import * as AdaptiveCards from "adaptivecards";
 import { useNavigate } from "react-router-dom";
 import type { JSXElement } from "@fluentui/react-components";
 import { Button } from "@fluentui/react-components";
-import { ArrowStepBackFilled } from "@fluentui/react-icons";
+import { ArrowStepBackFilled, AddStarburstColor } from "@fluentui/react-icons";
 import { JsonEditor } from 'json-edit-react'
 import { Image } from "@fluentui/react-components";
+import {
+  makeStyles,
+  shorthands,
+  tokens,
+  Divider,
+} from "@fluentui/react-components";
 
 import { Style } from "../design/styles";
 import { useState } from "react";
 import data from "../resources/samplepayload.json"
 import { Data } from "../resources/DemoData";
 
-
+const useStyles = makeStyles({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    rowGap: "5px",
+  },
+  example: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyItems: "center",
+    minHeight: "96px",
+    backgroundColor: tokens.colorNeutralBackground1,
+  },
+  customHeightExample: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    minHeight: "192px",
+  },
+  customWidth: {
+    width: "200px",
+  },
+  customHeight: {
+    maxHeight: "50px",
+  },
+  customFont: {
+    fontSize: "14px",
+    fontWeight: "bold",
+  },
+  customLineColor: {
+    "::before": {
+      ...shorthands.borderColor(tokens.colorPaletteRedBorder2),
+    },
+    "::after": {
+      ...shorthands.borderColor(tokens.colorPaletteRedBorder2),
+    },
+  },
+  customLineStyle: {
+    ...shorthands.borderWidth("2px"),
+    "::before": {
+      borderTopStyle: "dashed",
+      borderTopWidth: "2px",
+    },
+    "::after": {
+      borderTopStyle: "dashed",
+      borderTopWidth: "2px",
+    },
+    color: '#f31919',
+  },
+});
 const resolveAsset = (asset: string) => {
   const ASSET_URL =
     "https://raw.githubusercontent.com/Xix6s/powerpages-adaptivecards/a108ede97a8891dcf5e2f5c1be4b118c1625f4c5/src/resources/"
   return `${ASSET_URL}${asset}`;
 };
 export const DesignCard = () => {
+  const styles = useStyles();
 const navigate = useNavigate();
 const [jsonData, setJsonData] = useState(data);
  const adaptiveCard = new AdaptiveCards.AdaptiveCard();
@@ -37,7 +94,10 @@ const result = adaptiveCard.render();
                 width={50}
                 style={{marginBlockEnd:"auto"}}
             />
-            <div style={{display:"flex", flexDirection: "row",alignItems:"flex-start",justifyContent: "space-around", padding: '20px', columnGap:'20px',overflow: 'auto !important',borderTopColor:'red',borderTopStyle:'dashed'}}>
+             <Button size="large" style={{color:'red', fontFamily:'cursive',marginLeft:'80%'}} icon={<ArrowStepBackFilled />} onClick={() => navigate("/")}>BCK</Button>
+            <div style={{display:"flex", flexDirection: "row",alignItems:"flex-start",justifyContent: "space-evenly", padding: '20px',borderTopColor:'red',borderTopStyle:'dashed'}}>
+              {/* Start Card Component */}
+              <div style={Style()["EditorCard"]} >
                 <JsonEditor
              data={jsonData}
              defaultValue={Data}
@@ -50,16 +110,46 @@ const result = adaptiveCard.render();
              indent={1}
              collapse={true}
              />
+             </div>
             <div style={Style()["card"]} ref={(n) => {
                 n && n.firstChild && n.removeChild(n.firstChild);
                 n && n.appendChild(result);
             }} />
-           
+            </div>
 
-          <Button size="large" style={{color:'red', fontFamily:'cursive'}} icon={<ArrowStepBackFilled />} onClick={() => navigate("/")}>BCK</Button>
-            </div>
-             
-            </div>
+             <div className={styles.example}>
+          <Divider className={styles.customLineStyle}>
+             <Button icon={<AddStarburstColor/>}></Button> (<code>ADD NEW ROW</code>)
+          </Divider>
+          </div>
+             {/* End Card Component */}
+             <div style={{display:"flex", flexDirection: "row",alignItems:"flex-start",justifyContent: "space-evenly", padding: '20px'}}>
+             <div style={Style()["EditorCard"]} >
+                <JsonEditor
+             data={jsonData}
+             defaultValue={Data}
+             setData={setJsonData}
+             maxWidth="min(700px,50vw)"
+             minWidth={'min(670px,50vw)'}
+             rootFontSize={12}
+             showCollectionCount={true}
+             enableClipboard={true}
+             indent={1}
+             collapse={true}
+             />
+             </div>
+            <div style={Style()["card"]} ref={(n) => {
+                n && n.firstChild && n.removeChild(n.firstChild);
+                n && n.appendChild(result);
+            }} />
+</div>
+             <div className={styles.example}>
+          <Divider className={styles.customLineStyle}>
+             <Button icon={<AddStarburstColor/>}></Button> (<code>ADD NEW ROW</code>)
+          </Divider>
+          
+          </div>
+         </div>
             
     );
 };

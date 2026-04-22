@@ -35,6 +35,15 @@ export const Style = (): Record<string, CSSProperties> => ({
         width: '100%',
         borderStyle: 'none',
     },
+    EditorCard: {
+        background: 'white',
+        borderRadius: '12px',
+        boxShadow: '0 10px 40px rgba(0,0,0,0.1)',
+        padding: '40px',
+        maxWidth: '700px',
+        width: '100%',
+        borderStyle: 'none',
+    },
     title: {
         fontSize: '28px',
         fontWeight: '700',
@@ -150,4 +159,5 @@ export const Style = (): Record<string, CSSProperties> => ({
         fontSize: '18px',
         color: 'white',
     },
+    
 });

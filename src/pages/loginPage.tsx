@@ -54,7 +54,8 @@ export const LoginPage = () => {
                 height={50}
                 width={50}
             />
-            <div style={{display:"flex", flexDirection: "row",alignItems:"flex-start",justifyContent: "space-around", padding: '20px' ,columnGap:'20px',overflow: 'auto !important',borderTopColor:'red',borderTopStyle:'dashed'}}>
+            <Button size="large" style={{color:'red', fontFamily:'cursive',marginLeft:'80%'}} icon={<ArrowStepBackFilled />} onClick={() => navigate("/")}>BCK</Button>
+            <div style={{display:"flex", flexDirection: "row",alignItems:"center",justifyContent: "center", padding: '20px' ,columnGap:'20px',overflow: 'auto !important',borderTopColor:'red',borderTopStyle:'dashed'}}>
                 <div style={{width:'100px'}}></div>
                  <div style={Style()["card"]}>
                 <h1 style={Style()["title"]}>🔐 Login</h1>
@@ -121,7 +122,7 @@ export const LoginPage = () => {
                 </div>
             </div>
 
-            <Button size="large" style={{color:'red', fontFamily:'cursive'}} icon={<ArrowStepBackFilled />} onClick={() => navigate("/")}>BCK</Button>
+            
 
             </div>
              
