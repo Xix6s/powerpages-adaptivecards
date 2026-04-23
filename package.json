@@ -13,6 +13,7 @@
     "@fluentui/react-components": "^9.73.7",
     "adaptivecards": "^3.0.6",
     "json-edit-react": "^1.29.0",
+    "modern-json-react": "^1.2.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.13.0"

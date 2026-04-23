@@ -17,6 +17,7 @@ import { useState } from "react";
 import data from "../resources/samplepayload.json"
 import { Data } from "../resources/DemoData";
 
+
 const useStyles = makeStyles({
   root: {
     display: "flex",
@@ -81,12 +82,12 @@ const [jsonData, setJsonData] = useState(data);
  adaptiveCard.hostConfig = new AdaptiveCards.HostConfig({
     fontFamily: "Segoe UI, Helvetica Neue, sans-serif"
  });
-
+console.log(jsonData);
  adaptiveCard.onExecuteAction = () => alert("ACTION!");
- adaptiveCard.parse(jsonData ?? Data);
+ adaptiveCard.parse(jsonData ?? data);
 const result = adaptiveCard.render();
     return (
-        <div >
+        <div style={Style()["paper"]}>
              <Image
                 alt="Xix6s"
                 src={resolveAsset("6it-logo.svg")}
@@ -100,7 +101,7 @@ const result = adaptiveCard.render();
               <div style={Style()["EditorCard"]} >
                 <JsonEditor
              data={jsonData}
-             defaultValue={Data}
+             defaultValue={data}
              setData={setJsonData}
              maxWidth="min(700px,50vw)"
              minWidth={'min(670px,50vw)'}
@@ -119,7 +120,7 @@ const result = adaptiveCard.render();
 
              <div className={styles.example}>
           <Divider className={styles.customLineStyle}>
-             <Button icon={<AddStarburstColor/>}></Button> (<code>ADD NEW ROW</code>)
+          
           </Divider>
           </div>
              {/* End Card Component */}
@@ -138,11 +139,11 @@ const result = adaptiveCard.render();
              collapse={true}
              />
              </div>
-            <div style={Style()["card"]} ref={(n) => {
+            {/* <div style={Style()["card"]} ref={(n) => {
                 n && n.firstChild && n.removeChild(n.firstChild);
                 n && n.appendChild(result);
-            }} />
-</div>
+            }} /> */}
+            </div>
              <div className={styles.example}>
           <Divider className={styles.customLineStyle}>
              <Button icon={<AddStarburstColor/>}></Button> (<code>ADD NEW ROW</code>)
