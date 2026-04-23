@@ -2,7 +2,7 @@ import * as AdaptiveCards from "adaptivecards";
 import { useNavigate } from "react-router-dom";
 import type { JSXElement } from "@fluentui/react-components";
 import { Button } from "@fluentui/react-components";
-import { ArrowStepBackFilled, AddStarburstColor } from "@fluentui/react-icons";
+import { ArrowStepBackFilled } from "@fluentui/react-icons";
 import { JsonEditor } from 'json-edit-react'
 import { Image } from "@fluentui/react-components";
 import {
@@ -14,8 +14,10 @@ import {
 
 import { Style } from "../design/styles";
 import { useState } from "react";
-import data from "../resources/samplepayload.json"
-import { Data } from "../resources/DemoData";
+import sampledata1 from "../resources/samplepayload.json"
+import { XixCards, ICardFactoryProps} from "./adaptiveCardFactory";
+import sampledata2 from "../resources/samplepayloadtwo.json"
+//import { Data, Sample } from "../resources/DemoData";
 
 
 const useStyles = makeStyles({
@@ -77,14 +79,25 @@ const resolveAsset = (asset: string) => {
 export const DesignCard = () => {
   const styles = useStyles();
 const navigate = useNavigate();
-const [jsonData, setJsonData] = useState(data);
+const [jsonData, setJsonData] = useState(sampledata1);
+
+const cardList: ICardFactoryProps = {} as ICardFactoryProps;
+cardList.Data = [];
+//cardList.Data = sampledata2;
+sampledata2.map((currentCard) => {
+  console.log(currentCard);
+if(currentCard){
+  cardList.Data.push(currentCard)
+} 
+});
+
  const adaptiveCard = new AdaptiveCards.AdaptiveCard();
  adaptiveCard.hostConfig = new AdaptiveCards.HostConfig({
     fontFamily: "Segoe UI, Helvetica Neue, sans-serif"
  });
-console.log(jsonData);
+//console.log(jsonData);
  adaptiveCard.onExecuteAction = () => alert("ACTION!");
- adaptiveCard.parse(jsonData ?? data);
+ adaptiveCard.parse(jsonData ?? sampledata1);
 const result = adaptiveCard.render();
     return (
         <div style={Style()["paper"]}>
@@ -101,7 +114,7 @@ const result = adaptiveCard.render();
               <div style={Style()["EditorCard"]} >
                 <JsonEditor
              data={jsonData}
-             defaultValue={data}
+             defaultValue={sampledata1}
              setData={setJsonData}
              maxWidth="min(700px,50vw)"
              minWidth={'min(670px,50vw)'}
@@ -124,32 +137,10 @@ const result = adaptiveCard.render();
           </Divider>
           </div>
              {/* End Card Component */}
-             <div style={{display:"flex", flexDirection: "row",alignItems:"flex-start",justifyContent: "space-evenly", padding: '20px'}}>
-             <div style={Style()["EditorCard"]} >
-                <JsonEditor
-             data={jsonData}
-             defaultValue={Data}
-             setData={setJsonData}
-             maxWidth="min(700px,50vw)"
-             minWidth={'min(670px,50vw)'}
-             rootFontSize={12}
-             showCollectionCount={true}
-             enableClipboard={true}
-             indent={1}
-             collapse={true}
-             />
-             </div>
-            {/* <div style={Style()["card"]} ref={(n) => {
-                n && n.firstChild && n.removeChild(n.firstChild);
-                n && n.appendChild(result);
-            }} /> */}
-            </div>
-             <div className={styles.example}>
-          <Divider className={styles.customLineStyle}>
-             <Button icon={<AddStarburstColor/>}></Button> (<code>ADD NEW ROW</code>)
-          </Divider>
-          
-          </div>
+          {/* {cardsToDisplay.length > 0 && cardsToDisplay.map((card) => (
+            xixCards(card)
+          ))} */}
+          {XixCards(cardList)}
          </div>
             
     );
