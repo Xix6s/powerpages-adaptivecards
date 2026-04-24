@@ -14,6 +14,7 @@ import * as AdaptiveCards from "adaptivecards";
 import { useState } from "react";
 import { Style } from "../design/styles";
 import { JsonEditor } from 'json-edit-react';
+import { XixCard } from "./renderAdaptiveCard";
 
 
 const useStyles = makeStyles({
@@ -52,44 +53,21 @@ version: string;
 body: any;
 };
 export const XixCards = (data: ICardFactoryProps) => {
-const styles = useStyles();
-const [jsonData, setData] = useState(data.Data[0]);
-    const adaptiveCard = new AdaptiveCards.AdaptiveCard();
-     adaptiveCard.hostConfig = new AdaptiveCards.HostConfig({
-        fontFamily: "Segoe UI, Helvetica Neue, sans-serif"
-     });
-    console.log(jsonData);
-     adaptiveCard.onExecuteAction = () => alert("ACTION!");
-     adaptiveCard.parse(jsonData);
-    const result = adaptiveCard.render();
+//const styles = useStyles();
+// const [jsonData, setData] = useState(data.Data);
+//     const adaptiveCard = new AdaptiveCards.AdaptiveCard();
+//      adaptiveCard.hostConfig = new AdaptiveCards.HostConfig({
+//         fontFamily: "Segoe UI, Helvetica Neue, sans-serif"
+//      });
+//     console.log(jsonData);
+//      adaptiveCard.onExecuteAction = () => alert("ACTION!");
+//      adaptiveCard.parse(jsonData);
+//     const result = adaptiveCard.render();
 return(
     <> 
-     <div style={{display:"flex", flexDirection: "row",alignItems:"flex-start",justifyContent: "space-evenly", padding: '20px'}}>
-             <div style={Style()["EditorCard"]} >
-            <Button title="Hello" />
-                <JsonEditor
-             data={jsonData}
-             defaultValue={jsonData}
-             setData={setData}
-             maxWidth="min(700px,50vw)"
-             minWidth={'min(670px,50vw)'}
-             rootFontSize={12}
-             showCollectionCount={true}
-             enableClipboard={true}
-             indent={1}
-             collapse={true}
-             />
-             </div>
-            <div style={Style()["card"]} ref={(n) => {
-                n && n.firstChild && n.removeChild(n.firstChild);
-                n && n.appendChild(result);
-            }} />
-            </div>
-             <div className={styles.lineContainer}>
-          <Divider className={styles.customLineStyle}>
-             <Button icon={<AddStarburstColor/>} ></Button> (<code>ADD NEW CARD</code>)
-          </Divider>
-          </div>
+     {data.Data.length > 0 && data.Data.map((card) => {
+        XixCard(card);
+     })}
     </>
 );
 
