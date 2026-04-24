@@ -160,7 +160,7 @@ export const Style = (): Record<string, CSSProperties> => ({
         color: 'white',
     },
     paper: {
-        position: "absolute",
+        position: "static",
         top: "0",
         bottom: "0",
         left: "0",

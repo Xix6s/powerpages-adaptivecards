@@ -1,6 +1,6 @@
 import * as AdaptiveCards from "adaptivecards";
 import { useNavigate } from "react-router-dom";
-import type { JSXElement } from "@fluentui/react-components";
+
 import { Button } from "@fluentui/react-components";
 import { ArrowStepBackFilled } from "@fluentui/react-icons";
 import { JsonEditor } from 'json-edit-react'
@@ -17,46 +17,17 @@ import { useState } from "react";
 import sampledata1 from "../resources/samplepayload.json"
 import { XixCards, ICardFactoryProps} from "./adaptiveCardFactory";
 import sampledata2 from "../resources/samplepayloadtwo.json"
-//import { Data, Sample } from "../resources/DemoData";
 
 
 const useStyles = makeStyles({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "5px",
-  },
-  example: {
+
+  lineContainer: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyItems: "center",
     minHeight: "96px",
     backgroundColor: tokens.colorNeutralBackground1,
-  },
-  customHeightExample: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    minHeight: "192px",
-  },
-  customWidth: {
-    width: "200px",
-  },
-  customHeight: {
-    maxHeight: "50px",
-  },
-  customFont: {
-    fontSize: "14px",
-    fontWeight: "bold",
-  },
-  customLineColor: {
-    "::before": {
-      ...shorthands.borderColor(tokens.colorPaletteRedBorder2),
-    },
-    "::after": {
-      ...shorthands.borderColor(tokens.colorPaletteRedBorder2),
-    },
   },
   customLineStyle: {
     ...shorthands.borderWidth("2px"),
@@ -69,13 +40,22 @@ const useStyles = makeStyles({
       borderTopWidth: "2px",
     },
     color: '#f31919',
+    width: '90%'
   },
 });
+
+
 const resolveAsset = (asset: string) => {
   const ASSET_URL =
     "https://raw.githubusercontent.com/Xix6s/powerpages-adaptivecards/a108ede97a8891dcf5e2f5c1be4b118c1625f4c5/src/resources/"
   return `${ASSET_URL}${asset}`;
 };
+
+
+
+
+
+
 export const DesignCard = () => {
   const styles = useStyles();
 const navigate = useNavigate();
@@ -85,7 +65,7 @@ const cardList: ICardFactoryProps = {} as ICardFactoryProps;
 cardList.Data = [];
 //cardList.Data = sampledata2;
 sampledata2.map((currentCard) => {
-  console.log(currentCard);
+
 if(currentCard){
   cardList.Data.push(currentCard)
 } 
@@ -131,9 +111,9 @@ const result = adaptiveCard.render();
             }} />
             </div>
 
-             <div className={styles.example}>
+             <div className={styles.lineContainer}>
           <Divider className={styles.customLineStyle}>
-          
+          (<code>YOUR TURN</code>)
           </Divider>
           </div>
              {/* End Card Component */}

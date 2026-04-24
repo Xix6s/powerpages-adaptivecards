@@ -2,9 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { MouseEvent } from "react";
 import { Style } from "../design/styles";
 
-import type { JSXElement } from "@fluentui/react-components";
-//import { ArrowClockwiseDashesSettingsColor,  AppsColor} from "@fluentui/react-icons";
-
 
 
 const resolveAsset = (asset: string) => {
